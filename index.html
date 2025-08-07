@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>JARVIS AI – Trang Chủ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- Montserrat cho heading, Open Sans cho body -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap&subset=vietnamese" rel="stylesheet"/>
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Cho phép cuộn mượt */
+    body { overflow-y:auto; scroll-behavior:smooth; }
+
+    /* Hero & Features */
+    #hero{ text-align:center; padding:4rem 1rem; }
+    #hero h1{ font-family:'Montserrat',sans-serif; font-size:clamp(2rem,6vw,4rem); color:var(--c3); margin-bottom:1rem; }
+    #hero p{ font-family:'Open Sans',sans-serif; font-size:1.1rem; color:var(--c3); max-width:720px; margin:0 auto 2rem; line-height:1.5; }
+    #features{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2rem; padding:2rem 1rem 3rem; max-width:960px; margin:0 auto; }
+    .feature{
+      position:relative; background:var(--glass); backdrop-filter:var(--blur);
+      border:1.5px solid var(--c2); border-radius:12px; padding:1.5rem;
+      cursor:pointer;
+    }
+    .feature h3{ font-family:'Montserrat',sans-serif; font-size:1.25rem; margin-bottom:0.75rem; color:var(--c1); }
+    .feature p{ font-family:'Open Sans',sans-serif; font-size:1rem; color:var(--c3); line-height:1.4; margin-bottom:0.5rem; }
+
+    /* Chi tiết ẩn và animation */
+    .feature .details{
+      max-height:0; overflow:hidden;
+      transition:max-height .6s ease, padding .6s ease;
+      padding:0 0.5rem;
+    }
+    .feature.open .details{
+      padding:0.75rem 0.5rem;
+    }
+
+    /* Fade-in */
+    .fade-in{ opacity:0; transform:translateY(36px) scale(.97);
+      transition:opacity 1.05s cubic-bezier(.23,1.03,.56,1), transform 1.05s cubic-bezier(.23,1.03,.56,1);
+    }
+    .fade-in.visible{ opacity:1; transform:none; }
+
+    /* Mobile */
+    @media(max-width:600px){
+      #hero{ padding:3rem 1rem; }
+      #hero h1{ font-size:clamp(1.6rem,9vw,2.6rem); }
+      #hero p{ font-size:1rem; }
+      #features{ grid-template-columns:1fr; gap:1.2rem; padding:1.4rem 0.75rem 2.5rem; }
+      .feature{ padding:1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <svg id="stars-bg"></svg>
+
+  <div id="hero" class="fade-in">
+    <h1>Chào mừng đến với J.A.R.V.I.S AI</h1>
+    <p>"Trade Smarter with J.A.R.V.I.S AI"</p>
+
+    <div class="hero-buttons">
+      <button id="start-btn" class="glow-btn">Start Javis Agent</button>
+      <button id="scroll-faq-btn" class="glow-btn">❓ FAQ</button>
+      <button id="scroll-author-btn" class="glow-btn">❇️ Tác giả</button>
+      <button class="coming-soon-btn" disabled>Start AI Live Trader <br><span>(coming soon...)</span></button>
+      <button id="live-trade-btn" class="glow-btn" style="display: none;">🚀 Start AI Live Trade</button>
+    </div>
+  </div>
+
+
+  <section id="features">
+    <div class="feature fade-in" data-index="0">
+      <h3>Thuật toán mạnh mẽ</h3>
+      <p>Ứng dụng mô hình học sâu và phân tích kỹ thuật, điều chỉnh linh hoạt theo biến động thị trường thời gian thực.</p>
+      <div class="details">
+        <p>Mô hình Deep Learning kết hợp LLM và Transformer được huấn luyện trên tập dữ liệu giá lịch sử 10 năm, cùng thuật toán attention nhỏ gọn để ưu tiên các tín hiệu quan trọng nhất, giúp dự báo biến động với độ chính xác cao.</p>
+      </div>
+    </div>
+    <div class="feature fade-in" data-index="1">
+      <h3>Giao diện thân thiện</h3>
+      <p>Thiết kế tối giản, trực quan, dễ dàng thao tác chọn cặp giao dịch và theo dõi tín hiệu chỉ với vài cú click.</p>
+      <div class="details">
+        <p>Giao diện responsive thích ứng mọi kích thước màn hình, hỗ trợ dark mode và widget kéo-thả, cho phép người dùng tùy chỉnh dashboard cá nhân chỉ trong vài giây.</p>
+        <p>Bạn cũng có thể phóng to, thu nhỏ biểu đồ chỉ với thao tác pinch & zoom hoặc vuốt để di chuyển timeline.</p>
+      </div>
+    </div>
+    <div class="feature fade-in" data-index="2">
+      <h3>Hướng dẫn chi tiết</h3>
+      <p>Cung cấp các bước sử dụng rõ ràng: từ cách chọn symbol, gửi lệnh phân tích đến cách đọc kết quả và quản lý rủi ro.</p>
+      <div class="details">
+        <p>Từng bước tutorial được tích hợp ngay trong dashboard, kèm video minh họa và tooltip giải thích thuật ngữ chuyên sâu, giúp cả người mới và trader chuyên nghiệp đều dễ dàng nắm bắt.</p>
+        <p>Nhấn vào biểu tượng 'i' ở góc phải mỗi phần để xem giải thích thêm hoặc mở hẳn guide chi tiết.</p>
+      </div>
+    </div>
+    <div class="feature fade-in" data-index="3">
+      <h3>Bảo mật và tin cậy</h3>
+      <p>Dữ liệu người dùng được bảo vệ tuyệt đối. Hệ thống hoạt động ổn định, cập nhật liên tục để đảm bảo hiệu suất cao nhất.</p>
+      <div class="details">
+        <p>Mã hoá đầu cuối (end-to-end encryption) cho mọi request, chứng thực đa yếu tố (MFA) và hệ thống giám sát 24/7 với SLA 99.9%, bảo vệ thông tin và giao dịch của bạn an toàn tuyệt đối.</p>
+        <p>Hệ thống backup tự động hàng giờ đảm bảo dữ liệu không bao giờ bị mất, hỗ trợ restore chỉ với 1 click.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- FAQ SECTION START -->
+  <section id="faq" class="fade-in" style="padding: 2rem 1rem; max-width: 960px; margin: 0 auto;">
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2rem; color: var(--c1); margin-bottom: 1rem;">
+      FAQ
+    </h2>
+
+    <!-- Ví dụ 1 mục FAQ -->
+    <details class="faq-item"
+             style="border: 1px solid var(--c2); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: var(--glass); backdrop-filter: var(--blur);">
+      <summary style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; cursor: pointer; outline: none;">
+        Cách hoạt động của JAVIS Trading Assistant?
+      </summary>
+      <div class="faq-answer auto-format"
+           data-raw="Khác với các bot giao dịch truyền thống – vốn chỉ làm theo quy tắc có sẵn, như “RSI quá mua thì bán” hay “đường MA cắt nhau thì mua” – JAVIS là một trợ lý giao dịch có khả năng tư duy linh hoạt, giống như một chuyên gia tài chính đang ngồi bên cạnh bạn.\n\nJAVIS không đơn thuần áp dụng một công thức cố định. Thay vào đó, nó sẽ quan sát thị trường ở thời điểm hiện tại, phân tích xem điều kiện hiện tại đang nghiêng về xu hướng nào (giảm, tăng, sideway?), sau đó mới chọn ra một phương pháp phân tích phù hợp nhất – chứ không “làm theo khuôn”.\n\n* Ví dụ:\n- Nếu thị trường đang biến động mạnh, JAVIS có thể gợi ý chiến lược bám theo xu hướng (trend following).\n- Nếu thị trường đang đi ngang, nó sẽ ưu tiên chiến lược bắt đỉnh đáy (mean reversion).\n\nĐiều đặc biệt hơn nữa là: với khả năng kế thừa các model OpenSource LLM hiện nay, JAVIS có thể giải thích bằng ngôn ngữ tự nhiên. Tức là, thay vì chỉ báo “Mua” hay “Bán”, JAVIS sẽ nói rõ tại sao nó chọn chiến lược đó, dựa trên những yếu tố gì – giúp bạn hiểu rõ để đưa ra quyết định, thay vì phải tin máy móc 100%.\n\nTóm lại: JAVIS không chỉ là một con bot, mà là một “đồng đội thông minh” hiểu thị trường và biết trò chuyện. Nó không thay thế bạn – mà hỗ trợ bạn giao dịch tốt hơn, hiểu thị trường sâu hơn.">
+      </div>
+      <div class="faq-image-wrap">
+      <img src="static/faq1.png" alt="JAVIS" />
+      </div>
+    </details>
+    <details class="faq-item"
+             style="border: 1px solid var(--c2); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: var(--glass); backdrop-filter: var(--blur);">
+      <summary style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; cursor: pointer; outline: none;">
+        Khả năng mới: Đứng ngoài thị trường
+      </summary>
+      <div class="faq-answer auto-format"
+           data-raw="Không giống như nhiều bot giao dịch luôn cố “làm gì đó” mỗi khi có tín hiệu kỹ thuật – JAVIS có khả năng phân tích sâu hơn, và nếu thấy thị trường đang trong trạng thái:\\n- Nhiễu loạn, biến động không rõ xu hướng,\\n- Tín hiệu phân kỳ hoặc xung đột,\\n- Không có xác suất thắng đủ cao,\\n...thì JAVIS sẽ chủ động kích hoạt hành động “Wait” – đứng ngoài thị trường.\\n\\nNói cách khác, JAVIS không ép bạn phải giao dịch mọi lúc, mà chọn thời điểm đáng để vào lệnh. Nếu chưa đủ điều kiện, nó sẽ thẳng thắn nói rằng: Thị trường lúc này chưa đủ rõ ràng, nên tạm thời đứng ngoài để bảo toàn vốn và tâm lý.\\\n\\nMột trader giỏi không chỉ biết khi nào nên mua hay bán – mà còn biết khi nào nên chờ. Và JAVIS có tư duy như vậy.">
+      </div>
+      <!-- Ảnh minh hoạ -->
+      <div class="faq-image-wrap">
+      <img src="static/Screenshot 2025-08-06 153529.png" alt="JAVIS" />
+      </div>
+    </details>
+        <details class="faq-item"
+             style="border: 1px solid var(--c2); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: var(--glass); backdrop-filter: var(--blur);">
+      <summary style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; cursor: pointer; outline: none;">
+        JAVIS Agent chỉ đưa ra các kết quả dự đoán ở ngưỡng 55-60%?
+      </summary>
+      <div class="faq-answer auto-format"
+           data-raw="JAVIS không được tạo ra để “đánh bạc” với thị trường hay tìm kiếm một cú ăn đậm duy nhất. Ngược lại, JAVIS tập trung vào việc tìm kiếm những lợi thế nhỏ nhưng rõ ràng – các tình huống mà xác suất thắng nhỉnh hơn một chút so với trung bình (khoảng 55–60%).\\n\\nĐây chính là cách mà các trader chuyên nghiệp trên thế giới hoạt động. Họ không tìm cách “đoán đúng” tất cả mọi thứ, mà chỉ cần một chút thiên lệch xác suất, và lặp đi lặp lại nó một cách có kỷ luật – từ đó tạo nên lợi nhuận bền vững.\\n\\nNếu bạn đang tìm kiếm một trợ lý giao dịch biết khi nào có edge – và khi nào nên đứng ngoài, thì JAVIS chính là người bạn đồng hành lý tưởng.\\nNhưng nếu bạn cần một “thần bài tài chính” để tìm cú big win một lần rồi nghỉ – có lẽ JAVIS không dành cho bạn.">
+      </div>
+      <!-- Ảnh minh hoạ -->
+        <div class="faq-image-wrap">
+        <img src="static/55%.png" alt="JAVIS" />
+        </div>
+
+    </details>
+    </details>
+        <details class="faq-item"
+             style="border: 1px solid var(--c2); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: var(--glass); backdrop-filter: var(--blur);">
+      <summary style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; cursor: pointer; outline: none;">
+        Lý do mình Public
+      </summary>
+      <div class="faq-answer auto-format"
+           data-raw="Mình từng nghĩ rằng sẽ có một công thức “ăn lớn” trong thị trường – một cú trade lật đời. Nhưng càng đi sâu, mình càng hiểu ra một điều quan trọng:\\nThành công trong trading không đến từ những pha thắng lớn, mà đến từ việc thắng nhỏ, đều đặn – và sống sót lâu nhất.\\n\\nJAVIS không giúp bạn làm giàu nhanh chóng – và mình cũng không kỳ vọng như vậy cho chính mình.\\nThay vào đó, mình chọn một hướng đi khác:\\n- Xây dựng công cụ hữu ích, chia sẻ với cộng đồng trader, và qua đó:\\n- Tự rèn luyện khả năng phân tích & lập trình tài chính,\\n- Nhận lại rất nhiều góp ý chân thành từ những người cùng chí hướng,\\n- Và tạo ra một hành trình đi xa, bền vững hơn cùng thị trường.\\n\\nJAVIS không phải là “chiêu bí mật” để giấu riêng – nó là cách mình đồng hành cùng những ai đang nghiêm túc với việc giao dịch, học hỏi, và phát triển.">
+      </div>
+    </details>
+
+    <details class="faq-item"
+             style="border: 1px solid var(--c2); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: var(--glass); backdrop-filter: var(--blur);">
+      <summary style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; cursor: pointer; outline: none;">
+        Cách sử dụng JAVIS
+      </summary>
+      <div class="faq-answer auto-format"
+           data-raw="1. Click vào 'Start Javis Agent'\\n2. Chọn thị trường (Forex, Coin...)\\n3. Nhấn 'Phân tích' để nhận khuyến nghị điểm vào/ra lệnh, SL/TP\\n4. Thực hiện lệnh trên sàn hoặc copy tín hiệu theo gợi ý.">
+      </div>
+    </details>
+
+    <details class="faq-item"
+             style="border: 1px solid var(--c2); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: var(--glass); backdrop-filter: var(--blur);">
+      <summary style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; cursor: pointer; outline: none;">
+        Định hướng nâng cấp: JAVIS live trade Agent
+      </summary>
+      <div class="faq-answer auto-format"
+           data-raw="JAVIS đang trong giai đoạn hoàn thiện phiên bản beta – nơi mà mình tập trung vào việc đảm bảo an toàn và kỷ luật giao dịch là ưu tiên hàng đầu.\\n\\nĐịnh hướng sắp tới, JAVIS Agent sẽ hoạt động Demo với nguyên tắc:\\n- Rủi ro mỗi giao dịch chỉ 1% – đảm bảo an toàn vốn cho người dùng.\\n- Lợi thế xác suất (edge) ở mức 55–60% – không quá phô trương, nhưng đủ để tạo ra lợi nhuận ổn định nếu áp dụng đúng cách.\\n\\nVới triết lý “đi chậm để đi xa”, mình tin rằng JAVIS hoàn toàn có thể phát triển thành một AI Trader thực thụ trong tương lai – không phải kiểu máy móc mua bán vô tội vạ, mà là một chiến binh thông minh, kiên nhẫn, hiểu thị trường và biết quản lý rủi ro.\\n\\nMục tiêu của mình không phải là xây dựng một AI “đánh đâu thắng đó”, mà là tạo ra một đồng đội giao dịch an toàn – người bạn có thể tin cậy để đồng hành trên con đường đầu tư dài hạn.">
+      </div>
+    </details>
+
+    <details class="faq-item"
+             style="border: 1px solid var(--c2); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: var(--glass); backdrop-filter: var(--blur);">
+      <summary style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; cursor: pointer; outline: none;">
+        Lưu ý khi sử dụng JAVIS Agent
+      </summary>
+      <div class="faq-answer auto-format"
+           data-raw="JAVIS không phải là lời khuyên đầu tư.\\nTất cả các phân tích, nhận định từ JAVIS chỉ mang tính chất tham khảo – như một người bạn đưa ra góc nhìn bổ sung. Quyết định đầu tư và quản lý vốn cuối cùng luôn thuộc về bạn.\\n\\nKhông nên sử dụng JAVIS trong thời điểm thị trường biến động mạnh.\\nJAVIS hoạt động hiệu quả nhất trong môi trường ổn định, ít nhiễu thông tin. Trong những tuần lễ có tin tức quan trọng, họp FED, chỉ số kinh tế lớn, hoặc tin tức chính trị bất thường, tác giả khuyến nghị bạn nên đứng ngoài hoặc không sử dụng JAVIS để vào lệnh.\\n\\nJAVIS Live Trader (coming soon): chiến lược xác suất cao – rủi ro thấp.\\nPhiên bản sắp ra mắt “Live Trader” của JAVIS sẽ hoạt động theo nguyên tắc:\\n- Tận dụng lợi thế xác suất nhỏ (edge 55–60%),\\n- Kết hợp với quản trị rủi ro chặt chẽ (risk ~1%/giao dịch),\\n- Không “phán đoán đỉnh đáy”, mà tìm điểm vào hợp lý với lợi thế rõ ràng.\\n\\nĐây là chiến lược phù hợp với người dùng nghiêm túc, hiểu rõ về xác suất và không kỳ vọng “làm giàu nhanh”. Người dùng nên thận trọng trong phân bổ vốn và không nên sử dụng JAVIS như công cụ giao dịch tự động hoàn toàn mà không có hiểu biết đi kèm.">
+      </div>
+    </details>
+    <!-- Thêm bao nhiêu <details>…</details> tùy thích -->
+
+  </section>
+  <!-- FAQ SECTION END -->
+  <!-- AUTHOR SECTION START -->
+  <section id="author" class="fade-in" style="padding: 2rem 1rem; max-width: 720px; margin: 3rem auto 0; text-align: center;">
+    <!-- Avatar / Ảnh đại diện -->
+    <div class="author-avatar" style="width: 120px; height: 120px; margin: 0 auto 1rem; border-radius: 50%; overflow: hidden; border: 2px solid var(--c2);">
+      <!-- Thay src bằng đường dẫn ảnh của bạn -->
+      <img src="/static/The5er.png"
+           alt="Ảnh đại diện"
+           loading="lazy" decoding="async"
+           style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+    <!-- Tên tác giả -->
+    <h3 class="author-name" style="font-family: 'Montserrat', sans-serif; font-size: 1.75rem; color: var(--c1); margin-bottom: 0.5rem;">
+      <!-- Thay thế bằng tên tác giả -->
+      Nam Nguyen
+    </h3>
+
+    <!-- Chức vụ / vai trò -->
+    <p class="author-role" style="font-family: 'Open Sans', sans-serif; font-size: 1rem; color: var(--c3); margin-bottom: 1rem;">
+      <!-- Thay thế bằng chức danh hoặc thông tin ngắn -->
+      Funded trader • The5er / IT software
+    </p>
+
+    <!-- Mô tả ngắn -->
+    <div class="author-bio" style="font-family: 'Open Sans', sans-serif; font-size: 1rem; color: var(--c3); line-height: 1.6; max-width: 600px; margin: 0 auto 1.5rem;">
+      <!-- Thay thế bằng đoạn giới thiệu ngắn gọn về tác giả -->
+      🎓 B.Sc. in Information Technology · 💰 Funded Trader @The5%ers · 👨‍💻 Creator of JAVIS, a Natural Language AI Trading Assistant built from real market experience and disciplined execution.
+    </div>
+
+    <!-- Social Links / Liên kết mạng xã hội -->
+    <div class="author-social" style="display: flex; justify-content: center; gap: 1rem;">
+      <!-- Thay href và nội dung icon/text -->
+      <a href="https://www.facebook.com/nam.acoustic.33" style="font-size: 1.2rem; text-decoration: none; color: var(--c1);">Facebook</a>
+      <a href="https://www.tiktok.com/@nam_trading" style="font-size: 1.2rem; text-decoration: none; color: var(--c1);">Tiktok</a>
+      <a href="https://github.com/namtrader15" style="font-size: 1.2rem; text-decoration: none; color: var(--c1);">GitHub</a>
+      <a href="https://chat.zalo.me/0564313288" style="font-size: 1.2rem; text-decoration: none; color: var(--c1);">Zalo</a>
+    </div>
+  </section>
+  <!-- AUTHOR SECTION END -->
+
+
+  <script>
+    /* Đẩy input lên khi bàn phím iOS mở */
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)){
+      const row = document.getElementById('inputrow');
+      window.addEventListener('focusin', ()=> row.style.transform = 'translateY(-280px)');
+      window.addEventListener('focusout',()=> row.style.transform = '');
+    }
+    // Sao động
+    const stars = Array.from({length:48},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.6,dur:Math.random()*5+4}));
+    function drawStars(){const w=innerWidth,h=innerHeight;starsBG.innerHTML=stars.map((s,i)=>`<circle cx="${(s.x*w).toFixed(1)}" cy="${(s.y*h).toFixed(1)}" r="${s.r.toFixed(1)}" fill="#a7eaff" opacity="0.72"><animate attributeName="opacity" values="0.1;1;0.1" dur="${s.dur.toFixed(2)}s" repeatCount="indefinite" begin="${(i*0.7).toFixed(2)}s"/></circle>`).join('');starsBG.setAttribute('width',w);starsBG.setAttribute('height',h);}const starsBG=document.getElementById('stars-bg');addEventListener('resize',drawStars);addEventListener('DOMContentLoaded',drawStars);
+
+    // Chuyển trang chat
+    document.getElementById('start-btn').onclick = () => location.href = '/chat';
+    // chuyển sang live_trade
+    document.getElementById('live-trade-btn').onclick = () => window.open('/live_trade', '_blank');
+
+
+    // Fade-in
+    addEventListener('DOMContentLoaded', () => document.querySelectorAll('.fade-in').forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),250+i*180)));
+
+    // Toggle chi tiết với dynamic height
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.feature').forEach(f => {
+        const details = f.querySelector('.details');
+        f.addEventListener('click', () => {
+          if (f.classList.contains('open')) {
+            details.style.maxHeight = null;
+            f.classList.remove('open');
+          } else {
+            f.classList.add('open');
+            details.style.maxHeight = details.scrollHeight + 'px';
+          }
+        });
+      });
+    });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    function smoothScrollTo(id, offset = 100) {
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      // Delay 1 frame để đảm bảo element đã render & layout ổn định
+      requestAnimationFrame(() => {
+        const targetY = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      });
+    }
+
+    const faqBtn = document.getElementById('scroll-faq-btn');
+    if (faqBtn) {
+      faqBtn.addEventListener('click', () => smoothScrollTo('faq'));
+    }
+
+    const authorBtn = document.getElementById('scroll-author-btn');
+    if (authorBtn) {
+      authorBtn.addEventListener('click', () => smoothScrollTo('author'));
+    }
+  });
+  </script>
+
+  <script>
+    function formatFAQ(raw) {
+      const text = raw.replaceAll("\\n", "\n"); // decode \\n
+      const blocks = text.split(/\n\s*\n/);     // chia theo đoạn
+
+      return blocks.map(block => {
+        if (block.trim().startsWith("- ")) {
+          const items = block.trim().split(/\n+/).map(item =>
+            "<li>" + item.replace(/^- /, "").trim() + "</li>");
+          return "<ul style='margin-left:1.2rem'>" + items.join("") + "</ul>";
+        } else {
+          return "<p>" + block.trim().replace(/\n/g, "<br>") + "</p>";
+        }
+      }).join("");
+    }
+
+    document.querySelectorAll(".faq-answer.auto-format").forEach(el => {
+      const raw = el.dataset.raw;
+      if (raw) el.innerHTML = formatFAQ(raw);
+    });
+  </script>
+  <footer id="main-footer">
+  <div class="footer-content">
+    <p>&copy; "Patience, probability, and code." — The foundation behind JAVIS.</p>
+    <p><a href="📩 nguyenthanhnam.pye@gmail.com " target="_blank">📩 nguyenthanhnam.pye@gmail.com </a></p>
+  </div>
+  </footer>
+
+</body>
+</html>
